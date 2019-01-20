@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersSignupTest < ActionDispatch::IntegrationTest
   test "invalid signup information" do
     get signup_path
-    assert_select "form[action=?]", signup_path
+    assert_select "form[action=?]", users_path
     # ブロック内の処理実行前後でUser.countが同じことを確認
     assert_no_difference 'User.count' do
       post users_path, params: { user: { name: "",
