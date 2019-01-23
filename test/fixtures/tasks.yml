@@ -1,0 +1,68 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2019-01-20 14:02:02
+  end: 2019-01-20 14:02:03
+  title: "one"
+  created_at: <%= 10.minutes.ago %>
+  user:  michael
+
+two:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "two"
+  created_at: <%= 3.years.ago %>
+
+three:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "three"
+  created_at: <%= 2.hours.ago %>
+
+four:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "three"
+  created_at: <%= 2.hours.ago %>
+  user: archer
+
+five:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "three"
+  created_at: <%= 2.hours.ago %>
+  user: archer
+
+six:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "three"
+  created_at: <%= 2.hours.ago %>
+  user: lana
+
+seven:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "three"
+  created_at: <%= 2.hours.ago %>
+  user: lana
+
+eight:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "three"
+  created_at: <%= 2.hours.ago %>
+  user: michael
+
+nine:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "three"
+  created_at: <%= 2.hours.ago %>
+  user: michael
+
+most_recent:
+  start: 2019-01-20 14:03:02
+  end: 2019-01-20 14:03:03
+  title: "most_recent"
+  created_at: <%= Time.zone.now %>

@@ -1,9 +1,26 @@
-<div class="center jumbotron">
-  <h1>Simple Schedulerへようこそ！</h1>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="task_form">
+        <%= render 'shared/task_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>タスク一覧</h3>
+      <%= render 'shared/task_list' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Simple Schedulerへようこそ！</h1>
 
-  <h2>
-    簡単にスケジュールを管理できるサービスです。
-  </h2>
+    <h2>
+      簡単にスケジュールを管理できるサービスです。
+    </h2>
 
-  <%= link_to "会員登録", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+    <%= link_to "会員登録", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

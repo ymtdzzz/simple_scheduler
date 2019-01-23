@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :tasks, dependent: :destroy
   before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -37,5 +38,10 @@ class User < ApplicationRecord
   # ユーザーのログイン情報を削除する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # タスクのリストを取得する
+  def task_list
+    Task.where("user_id=?", id)
   end
 end

@@ -13,3 +13,9 @@ User.create!(name: "Example User",
         password: password,
         password_confirmation: password)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  title = Faker::Lorem.word
+  users.each { |user| user.tasks.create!(title: title, start: Time.mktime(2019, 1, 5), end: Time.mktime(2019, 1, 7))}
+end

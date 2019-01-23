@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tasks = @user.tasks.paginate(page: params[:page])
   end
 
   def new
@@ -52,15 +53,6 @@ class UsersController < ApplicationController
     end
 
     # beforeアクション
-
-    # ログインしてなければエラー表示
-    def logged_in_user
-      unless logged_in?
-        store_location  # GETでアクセスしようとしたURLを記憶
-        flash[:danger] = "ログインしてください。"
-        redirect_to login_url
-      end
-    end
 
     # 正しいユーザーかチェック
     def correct_user

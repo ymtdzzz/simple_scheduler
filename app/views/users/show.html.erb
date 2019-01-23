@@ -7,4 +7,13 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.tasks.any? %>
+      <h3>タスク一覧(<%= @user.tasks.count %>件)</h3>
+      <ol class="tasks">
+        <%= render @tasks %>
+      </ol>
+      <%= will_paginate @tasks %>
+    <% end %>
+  </div>
 </div>

@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190120090918) do
+ActiveRecord::Schema.define(version: 20190120221643) do
+
+  create_table "tasks", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.text "memo"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "title"
+    t.index ["end"], name: "index_tasks_on_end"
+    t.index ["start"], name: "index_tasks_on_start"
+    t.index ["user_id", "created_at"], name: "index_tasks_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
