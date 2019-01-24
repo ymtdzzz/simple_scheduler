@@ -1,14 +1,24 @@
 <%= form_for(@task) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label "タイトル" %>
     <%= f.text_field :title, placeholder: "タイトル" %>
 
-    <%= f.label :start %>
-    <%= f.datetime_select :start %>
+    <%= f.label "開始日時" %>
+    <div class='input-group date datetimepicker'>
+      <%= f.text_field :start, class: 'form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
 
-    <%= f.label :end %>
-    <%= f.datetime_select :end %>
+    <%= f.label "終了日時" %>
+    <div class='input-group date datetimepicker'>
+      <%= f.text_field :end, class: 'form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
   </div>
   <%= f.submit "作成", class: 'btn btn-primary' %>
 <% end %>

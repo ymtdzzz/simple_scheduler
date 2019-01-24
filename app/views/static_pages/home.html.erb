@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4">
+    <aside class="col-md-4 home-side">
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
@@ -10,7 +10,7 @@
     </aside>
     <div class="col-md-8">
       <h3>タスク一覧</h3>
-      <%= render 'shared/task_list' %>
+      <div id="calendar"></div>
     </div>
   </div>
 <% else %>

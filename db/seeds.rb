@@ -14,8 +14,10 @@ User.create!(name: "Example User",
         password_confirmation: password)
 end
 
-users = User.order(:created_at).take(6)
-50.times do
-  title = Faker::Lorem.word
-  users.each { |user| user.tasks.create!(title: title, start: Time.mktime(2019, 1, 5), end: Time.mktime(2019, 1, 7))}
-end
+user = User.first
+user.tasks.create!(title: Faker::Lorem.word, start: Time.mktime(2019, 1, 5, 00, 00, 00), end: Time.mktime(2019, 1, 7, 00, 00, 00))
+user.tasks.create!(title: Faker::Lorem.word, start: Time.mktime(2019, 1, 10, 8, 30, 00), end: Time.mktime(2019, 1, 10, 12, 00, 00))
+user.tasks.create!(title: Faker::Lorem.word, start: Time.mktime(2019, 1, 12, 17, 20, 00), end: Time.mktime(2019, 1, 13, 20, 00, 00))
+user.tasks.create!(title: Faker::Lorem.word, start: Time.mktime(2019, 1, 13, 8, 00, 00), end: Time.mktime(2019, 1, 13, 14, 20, 00))
+user.tasks.create!(title: Faker::Lorem.word, start: Time.mktime(2019, 1, 20, 12, 30, 00), end: Time.mktime(2019, 1, 20, 15, 00, 00))
+user.tasks.create!(title: Faker::Lorem.word, start: Time.mktime(2019, 1, 22, 18, 45, 00), end: Time.mktime(2019, 1, 22, 22, 15, 00))

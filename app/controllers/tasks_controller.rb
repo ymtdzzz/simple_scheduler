@@ -19,6 +19,24 @@ class TasksController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def tasks
+    @task_items = current_user.task_list
+    @task_items.each do |task|
+      task.url = edit_task_path(task)
+    end
+    # JSONの出力
+    respond_to do |format|
+      format.json {
+        render json:
+        @task_items.to_json(methods: :url)
+      }
+    end
+  end
+
+  def edit
+
+  end
+
   private 
 
     def task_params

@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  attr_accessor :url
   belongs_to :user
   validates :user_id, presence: true
   validates :start, presence: true

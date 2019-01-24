@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get 'tasks', to: 'tasks#tasks'
   resources :users
-  resources :tasks, only: [:create, :destroy]
+  resources :tasks, only: [:create, :destroy, :edit]
 end

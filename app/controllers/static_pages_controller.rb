@@ -1,7 +1,12 @@
 class StaticPagesController < ApplicationController
   def home
-    @task = current_user.tasks.build if logged_in?
-    @task_items = current_user.task_list.paginate(page: params[:page])
+    if logged_in?
+      @task = current_user.tasks.build
+      @task_items = current_user.task_list
+      @task_items.each do |task|
+        task.url = edit_task_path(task)
+      end
+    end
   end
 
   def help

@@ -14,4 +14,22 @@
 //= require jquery
 //= require bootstrap
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
+//= require fullcalendar
+//= require fullcalendar/lang/ja
 //= require_tree .
+
+$(function(){
+  $('.datepicker').datetimepicker({
+    format : "YYYY/MM/DD",
+    icons: {
+      previous: "fa fa-arrow-left",
+      next: "fa fa-arrow-right"
+    }
+  });
+  $('.datetimepicker').datetimepicker({
+    format : "YYYY/MM/DD HH:mm",
+    locale: 'ja'
+  });
+});
