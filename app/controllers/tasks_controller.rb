@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task.destroy
     flash[:success] = "タスクを削除しました"
     # 一つ前のURLにリダイレクト
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
 
   def tasks
@@ -34,7 +34,17 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = current_user.tasks.find_by(id: params[:id])
+  end
 
+  def update
+    @task = current_user.tasks.find_by(id: params[:id])
+    if @task.update_attributes(task_params)
+      flash[:success] = "タスクを更新しました"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
   end
 
   private 

@@ -20,5 +20,11 @@
       </span>
     </div>
   </div>
-  <%= f.submit "作成", class: 'btn btn-primary' %>
+  <%= f.submit yield(:button_text), class: 'btn btn-primary task-button' %>
+<% end %>
+<!-- 更新の場合は削除ボタンを表示する -->
+<% if yield(:button_text) == '更新' %>
+  <%= link_to "削除", @task, method: :delete, 
+                class: 'btn btn-danger task-delete-button',
+                data: { confirm: "本当に削除しますか？" } %>
 <% end %>
