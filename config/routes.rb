@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'tasks', to: 'tasks#tasks'
   resources :users
   resources :tasks, only: [:create, :destroy, :edit, :update]
+  resources :groups
 end
