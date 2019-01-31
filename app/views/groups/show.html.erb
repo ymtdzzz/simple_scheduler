@@ -2,8 +2,10 @@
 <h1><%= @group.name %></h1>
 
 <% if is_owner?(@group) %>
-  <%= link_to "編集", edit_group_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "削除", edit_group_path, class: "btn btn-lg btn-danger" %>
+  <%= link_to "編集", edit_group_path, class: "btn btn-primary" %>
+  <%= link_to "削除", group_path, method: :delete, 
+              class: 'btn btn-danger',
+              data: { confirm: "本当に削除しますか？" } %>
 <% end %>
 
 <ul>
