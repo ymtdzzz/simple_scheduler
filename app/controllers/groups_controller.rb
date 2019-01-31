@@ -17,6 +17,8 @@ class GroupsController < ApplicationController
       flash[:success] = "新規グループを作成しました"
       # グループ作成者は自動的に当該グループに所属する
       @group.users << current_user
+      # 作成者はownerとして登録される
+      @group.owner_id = current_user.id
       redirect_to root_url
     else
       render 'new'
