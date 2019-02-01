@@ -41,8 +41,20 @@ class GroupsController < ApplicationController
     end
   end
 
+  def join
+    @group = Group.find(params[:id])
+    # グループに所属していなければ追加
+    unless @group.users.include?(current_user)
+      flash[:success] = "「#{@group.name}」に参加しました"
+      @group.users << current_user
+    else
+      flash[:danger] = "あなたはすでに「#{@group.name}」のメンバーです"
+    end
+    redirect_to group_url
+  end
+
   def destroy
-    Group.find_by(id: params[:id]).destroy
+    Group.find(params[:id]).destroy
     flash[:success] = "グループを削除しました"
     redirect_to groups_url
   end

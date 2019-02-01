@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   resources :users
   resources :tasks, only: [:create, :destroy, :edit, :update]
   resources :groups
+  resources :groups do
+    member do
+      get :join
+    end
+  end
 end

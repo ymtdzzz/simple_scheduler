@@ -1,6 +1,9 @@
 <% provide(:title, "グループ詳細") %>
 <h1><%= @group.name %></h1>
 
+<% unless is_member?(@group) %>
+  <%= link_to '参加', join_group_path, class: "btn btn-success" %>
+<% end %>
 <% if is_owner?(@group) %>
   <%= link_to "編集", edit_group_path, class: "btn btn-primary" %>
   <%= link_to "削除", group_path, method: :delete, 

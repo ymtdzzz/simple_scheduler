@@ -7,4 +7,9 @@ module GroupsHelper
       return false
     end
   end
+
+  # 既に参加済みのユーザーか？
+  def is_member?(group)
+    group.users.include?(current_user)
+  end
 end
