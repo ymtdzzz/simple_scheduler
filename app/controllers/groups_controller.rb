@@ -15,12 +15,12 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+    # グループ作成者は自動的に当該グループに所属する
+    @group.users << current_user
+    # 作成者はownerとして登録される
+    @group.owner_id = current_user.id
     if @group.save
       flash[:success] = "新規グループを作成しました"
-      # グループ作成者は自動的に当該グループに所属する
-      @group.users << current_user
-      # 作成者はownerとして登録される
-      @group.owner_id = current_user.id
       redirect_to root_url
     else
       render 'new'
@@ -42,6 +42,9 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    Group.find_by(id: params[:id]).destroy
+    flash[:success] = "グループを削除しました"
+    redirect_to groups_url
   end
 
   private
@@ -52,7 +55,9 @@ class GroupsController < ApplicationController
 
     def owner
       @group = Group.find(params[:id])
-      flash[:danger] = "グループの編集／削除は作成者のみが行えます"
-      redirect_to @group unless @group.owner_id == current_user.id        
+      unless @group.owner_id == current_user.id
+        flash[:danger] = "グループの編集／削除は作成者のみが行えます"
+        redirect_to @group
+      end
     end
 end
