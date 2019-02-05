@@ -2,7 +2,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   has_many :tasks, dependent: :destroy
   has_many :group_users, dependent: :destroy
-  has_many :groups, through: :group_users, dependent: :destroy
+  has_many :groups, through: :group_users
   before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }

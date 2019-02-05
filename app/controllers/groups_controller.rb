@@ -53,9 +53,24 @@ class GroupsController < ApplicationController
     redirect_to group_url
   end
 
+  def defection
+    @group = Group.find(params[:id])
+    # 作成者じゃなく、かつグループに参加していれば退会
+    if @group.owner_id == current_user.id
+      flash[:danger] = "あなたはこのグループの作成者のため、退会する場合はグループ自体を削除して下さい"
+      render 'show'
+    elsif @group.users.include?(current_user)
+      flash[:success] = "#{@group.name}グループから退会しました"
+      @group.group_users.find_by(user_id: current_user).destroy
+      redirect_to groups_url
+    end
+  end
+
   def destroy
-    Group.find(params[:id]).destroy
-    flash[:success] = "グループを削除しました"
+    @group = Group.find(params[:id])
+    group_name = @group.name
+    @group.destroy
+    flash[:success] = "「#{group_name}」グループを削除しました"
     redirect_to groups_url
   end
 

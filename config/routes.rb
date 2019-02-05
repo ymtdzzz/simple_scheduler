@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :groups do
     member do
       get :join
+      get :defection
     end
   end
 end

@@ -4,6 +4,9 @@
 <% unless is_member?(@group) %>
   <%= link_to '参加', join_group_path, class: "btn btn-success" %>
 <% end %>
+<% if is_member?(@group) and @group.owner_id != current_user.id %>
+  <%= link_to '退会', defection_group_path, class: "btn btn-warning" %>
+<% end %>
 <% if is_owner?(@group) %>
   <%= link_to "編集", edit_group_path, class: "btn btn-primary" %>
   <%= link_to "削除", group_path, method: :delete, 
