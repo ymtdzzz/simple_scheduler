@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  has_many :tasks, dependent: :destroy
+  # has_many :tasks, dependent: :destroy
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
+  has_many :task_users, dependent: :destroy
+  has_many :tasks, through: :task_users
   before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -43,7 +45,7 @@ class User < ApplicationRecord
   end
 
   # タスクのリストを取得する
-  def task_list
-    Task.where("user_id=?", id)
-  end
+  # def task_list
+  #   Task.where("user_id=?", id)
+  # end
 end

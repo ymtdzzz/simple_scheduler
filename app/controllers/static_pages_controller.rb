@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       @task = current_user.tasks.build
-      @task_items = current_user.task_list
+      @task_items = current_user.tasks.all
       @task_items.each do |task|
         task.url = edit_task_path(task)
       end
