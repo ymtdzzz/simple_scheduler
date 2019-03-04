@@ -1,9 +1,11 @@
-<% provide(:title, "タスクの編集") %>
+<% provide(:title, "予定の編集") %>
 <% provide(:button_text, "更新") %>
-<h1>タスクの編集</h1>
+<div class="task-edit">
+  <h1>予定の編集</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'shared/task_form' %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= render 'shared/task_form' %>
+    </div>
   </div>
 </div>

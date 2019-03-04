@@ -12,6 +12,7 @@
 
 body {
   padding-top: 80px;
+  background-color: #fafaff;
 }
 
 section {
@@ -118,9 +119,36 @@ footer ul li {
 
 /* sidebar */
 
-aside {
+div.home-side {
+  background-color: white;
+  -webkit-border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  border-radius: 12px; 
+  -moz-box-shadow:    3px 3px 5px 1px #ddd;
+  -webkit-box-shadow: 3px 3px 5px 1px #ddd;
+  box-shadow:         3px 3px 5px 1px #ddd;
+}
+
+div.home-task {
+  position: relative;
+  top: 40px;
+  background-color: white;
+  padding: 10px;
+  border-left: 2px dotted #aaa;
+  -webkit-border-top-right-radius: 12px;
+  -webkit-border-bottom-right-radius: 12px;
+  -moz-border-radius-topright: 12px;
+  -moz-border-radius-bottomright: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  -moz-box-shadow:    3px 3px 5px 1px #ddd;
+  -webkit-box-shadow: 3px 3px 5px 1px #ddd;
+  box-shadow:         3px 3px 5px 1px #ddd;
+}
+
+div {
   section.user_info {
-    margin-top: 20px;
+    margin-top: 30px;
   }
   section {
     padding: 10px 0;
@@ -212,7 +240,7 @@ input {
   }
 }
 
-/* microposts */
+/* tasks */
 
 .tasks {
   list-style: none;
@@ -247,4 +275,110 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+span.group-title {
+  position: relative;
+  z-index: 2;
+  background-color: white;
+}
+div.group-member {
+  position: relative;
+  border: 1px solid #aaa;
+}
+
+.checkbox-list input[type="checkbox"] {
+  display: inline-block;
+  width: 10%;
+}
+
+.checkbox-list input[type="checkbox"] + label {
+  display: inline-block;
+  margin-left: 2%;
+  width: 80%;
+}
+
+div.task-edit {
+  text-align: center;
+  padding: 10px;
+  font-size: 21px;
+  background-color: white;
+  -webkit-border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  border-radius: 12px; 
+  -moz-box-shadow:    3px 3px 5px 1px #ddd;
+  -webkit-box-shadow: 3px 3px 5px 1px #ddd;
+  box-shadow:         3px 3px 5px 1px #ddd;
+}
+
+/* task_show */
+div.task_show {
+  text-align: center;
+  padding: 10px;
+  font-size: 21px;
+  background-color: white;
+  -webkit-border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  border-radius: 12px; 
+  -moz-box-shadow:    3px 3px 5px 1px #ddd;
+  -webkit-box-shadow: 3px 3px 5px 1px #ddd;
+  box-shadow:         3px 3px 5px 1px #ddd;
+}
+span.member-title {
+  position: relative;
+  z-index: 2;
+  padding: 6px;
+  background-color: white;
+}
+span.time {
+  margin-bottom: 15px;
+  display: block;
+}
+div.member-list-box {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  top: -15px;
+  padding-top: 20px;
+  border-top: 3px dotted #aaa;
+  border-bottom: 3px dotted #aaa;
+  padding-bottom: 10px;
+}
+ul.task-member-list {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+li.task-member {
+  list-style: none;
+}
+li.task-member:first-child {
+  border: none;
+}
+
+/* group */
+div.group-list {
+  text-align: center;
+  padding: 10px;
+  font-size: 21px;
+  background-color: white;
+  -webkit-border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  border-radius: 12px; 
+  -moz-box-shadow:    3px 3px 5px 1px #ddd;
+  -webkit-box-shadow: 3px 3px 5px 1px #ddd;
+  box-shadow:         3px 3px 5px 1px #ddd;
+}
+
+div.group-show {
+  text-align: center;
+  padding: 10px;
+  font-size: 21px;
+  background-color: white;
+  -webkit-border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  border-radius: 12px; 
+  -moz-box-shadow:    3px 3px 5px 1px #ddd;
+  -webkit-box-shadow: 3px 3px 5px 1px #ddd;
+  box-shadow:         3px 3px 5px 1px #ddd;
 }

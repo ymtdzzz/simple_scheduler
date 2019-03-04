@@ -10,7 +10,7 @@ class Task < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :memo, length: { maximum: 140 }
 
-  # タスクの作成者を返す
+  # 予定の作成者を返す
   def owner
     User.find_by(id: self.owner_id)
   end

@@ -9,10 +9,27 @@
   </aside>
   <div class="col-md-8">
     <% if @user.tasks.any? %>
-      <h3>タスク一覧(<%= @user.tasks.count %>件)</h3>
-      <ol class="tasks">
-        <%= render @tasks %>
-      </ol>
+      <h3>予定一覧(<%= @user.tasks.count %>件)</h3>
+      <div class="panel panel-default">
+        <table class="table">
+          <thead class="black">
+            <tr>
+              <th scope="col">タイトル</th>
+              <th scope="col">開始時間</th>
+              <th scope="col">終了時間</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.tasks.each do |task| %>
+              <tr>
+                <td><%= link_to task.title, task %></td>
+                <td><%= task.start.strftime('%Y/%m/%d %H:%M') %></td>
+                <td><%= task.end.strftime('%Y/%m/%d %H:%M') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
       <%= will_paginate @tasks %>
     <% end %>
   </div>

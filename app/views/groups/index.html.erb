@@ -1,8 +1,16 @@
 <% provide(:title, "グループ一覧") %>
-<h1>グループ一覧</h1>
+<div class="group-list">
+  <h1>グループ一覧</h1>
 
-<%= will_paginate %>
+  <%= will_paginate %>
 
-<ul>
-  <%= render @groups %>
-</ul>
+  <table class="table">
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= link_to group.name, group %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -20,10 +20,15 @@
       </span>
     </div>
 
+    <%= f.label "参加者" %>
+    <div class="checkbox-list">
       <% current_user.groups.each do |group| %>
-        <%= f.collection_check_boxes :users, group.users, :id, :name %>
+        <span class="group-title"><%= group.name %></span>
+        <div class="group-member">
+          <%= f.collection_check_boxes :users, group.users.where.not(id: current_user.id), :id, :name,  include_hidden: false %>
+        </div>
       <% end %>
-    <!--<%= f.collection_check_boxes :users, User.all, :id, :name %>-->
+    </div>
   </div>
   <%= f.submit yield(:button_text), class: 'btn btn-primary task-button' %>
 <% end %>

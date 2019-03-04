@@ -44,7 +44,7 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  # タスクのリストを取得する
+  # 予定のリストを取得する
   # def task_list
   #   Task.where("user_id=?", id)
   # end

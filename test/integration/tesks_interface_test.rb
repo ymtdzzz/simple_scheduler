@@ -5,7 +5,7 @@ class TesksInterfaceTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  # test "タスクのインターフェース" do
+  # test "予定のインターフェース" do
   #   log_in_as(@user)
   #   get root_path
   #   # 無効な送信

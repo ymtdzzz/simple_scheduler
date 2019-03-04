@@ -1,16 +1,16 @@
 <% provide(:button_text, "作成") %>
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4 home-side">
+    <div class="col-md-4 home-side">
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
       <section class="task_form">
         <%= render 'shared/task_form' %>
       </section>
-    </aside>
-    <div class="col-md-8">
-      <h3>タスク一覧</h3>
+    </div>
+    <div class="col-md-8 home-task">
+      <h3>予定一覧</h3>
       <div id="calendar"></div>
     </div>
   </div>

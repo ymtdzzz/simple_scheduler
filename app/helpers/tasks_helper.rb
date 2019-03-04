@@ -1,5 +1,5 @@
 module TasksHelper
-  # ログインユーザーがそのタスクの作成者か？
+  # ログインユーザーがその予定の作成者か？
   def is_owner?(task)
     if task.owner == current_user
       return true

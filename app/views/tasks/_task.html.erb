@@ -1,12 +1,6 @@
 <li id="task-<%= task.id %>">
-  <span class="user"><%= link_to task.user.name, task.user %></span>
-  <span class="content"><%= task.title %></span>
+  <span class="content"><%= link_to task.title, task %></span>
   <span class="start"><%= task.start %></span>
   <span class="end">
-    <%= task.end %>
-    <% if correct_user?(task.user) %>
-      <%= link_to "削除", task, method: :delete,
-                  data: { confirm: "本当に削除しますか？" } %>
-    <% end %>
   </span>
 </li>
