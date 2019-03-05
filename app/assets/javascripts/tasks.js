@@ -51,3 +51,17 @@ $(document).on('turbolinks:load', function() {
     editable: false
   });
 });
+
+$(document).on('turbolinks:load', function() {
+  $('.datepicker').datetimepicker({
+    format : "YYYY/MM/DD",
+    icons: {
+      previous: "fa fa-arrow-left",
+      next: "fa fa-arrow-right"
+    }
+  });
+  $('.datetimepicker').datetimepicker({
+    format : "YYYY/MM/DD HH:mm",
+    locale: 'ja'
+  });
+});
